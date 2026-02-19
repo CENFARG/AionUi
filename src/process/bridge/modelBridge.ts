@@ -194,7 +194,7 @@ export function initModelBridge(): void {
 
           // Filter inference profiles that contain Claude models
           const inferenceProfiles = response.inferenceProfileSummaries || [];
-          const claudeProfiles = inferenceProfiles.filter((profile) => profile.inferenceProfileId?.includes('anthropic.claude'));
+          const claudeProfiles = inferenceProfiles.filter((profile: any) => profile.inferenceProfileId?.includes('anthropic.claude'));
 
           if (claudeProfiles.length === 0) {
             return {
@@ -204,7 +204,7 @@ export function initModelBridge(): void {
           }
 
           // Map to objects with friendly names
-          const modelsWithNames = claudeProfiles.map((profile) => ({
+          const modelsWithNames = claudeProfiles.map((profile: any) => ({
             id: profile.inferenceProfileId || '',
             name: getBedrockModelDisplayName(profile.inferenceProfileId || ''),
           }));

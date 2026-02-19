@@ -1,9 +1,10 @@
-import i18n from 'i18next';
+﻿import i18n from 'i18next';
 import LanguageDetector from 'i18next-browser-languagedetector';
 import { initReactI18next } from 'react-i18next';
 
 import { ConfigStorage } from '@/common/storage';
 import enUS from './locales/en-US.json';
+import esES from './locales/es-ES.json';
 import jaJP from './locales/ja-JP.json';
 import koKR from './locales/ko-KR.json';
 import trTR from './locales/tr-TR.json';
@@ -28,6 +29,9 @@ const resources = {
   },
   'tr-TR': {
     translation: trTR,
+  },
+  'es-ES': {
+    translation: esES,
   },
 };
 

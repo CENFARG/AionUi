@@ -246,6 +246,11 @@ ipcBridge.application.openDevTools.provider(() => {
 });
 
 const handleAppReady = async (): Promise<void> => {
+  // Force GramaOS identity and Dark Mode
+  app.setName('GramaOS');
+  const { nativeTheme } = await import('electron');
+  nativeTheme.themeSource = 'dark';
+
   // Set dock icon in development mode on macOS
   // In production, the icon is set via forge.config.ts packagerConfig.icon
   if (process.platform === 'darwin' && !app.isPackaged && app.dock) {

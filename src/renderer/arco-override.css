@@ -206,3 +206,121 @@ body[arco-theme='dark'] .arco-message-error {
     background: var(--color-primary);
   }
 }
+
+/* ============================================================ */
+/* Grama OS Neon Overrides - ANTI-GLARE & LEGIBILITY FOCUS */
+/* ============================================================ */
+
+:root,
+[arco-theme='dark'] {
+  --color-primary-light-1: rgba(0, 210, 255, 0.05) !important;
+  --color-primary-light-4: rgba(0, 210, 255, 0.15) !important;
+  --color-bg-white: #050a14 !important;
+  --color-bg-1: #050a14 !important;
+  --color-bg-2: #0a1122 !important;
+  --color-bg-3: #020617 !important;
+  --color-bg-4: #0f172a !important;
+  --color-bg-popup: #0a1122 !important;
+  --bg-base: #050a14 !important;
+
+  /* Kill Arco Fill Whites */
+  --color-fill-1: rgba(255, 255, 255, 0.02) !important;
+  --color-fill-2: rgba(255, 255, 255, 0.05) !important;
+  --color-fill-3: rgba(255, 255, 255, 0.08) !important;
+  --color-fill-4: rgba(255, 255, 255, 0.12) !important;
+
+  /* Typography - Soft Blue Gray for Legibility */
+  --color-text-1: #cbd5e1 !important;
+  --color-text-2: #94a3b8 !important;
+  --color-text-3: #64748b !important;
+}
+
+/* Global Background */
+body {
+  background: #050a14 !important;
+  color: #cbd5e1 !important; /* Soften the glare */
+}
+
+/* ☢️ NUCLEAR DARK OVERRIDES - FIXING WHITE BLOCKS ☢️ */
+
+/* 1. Inputs, Textareas & Selection Wrappers */
+.arco-input,
+.arco-textarea,
+.arco-input-wrapper,
+.arco-input-inner-wrapper,
+.arco-select-view,
+.arco-picker,
+.arco-input-group-wrapper,
+.arco-input-group,
+.arco-input-password {
+  background-color: #020617 !important;
+  border: 1px solid rgba(0, 210, 255, 0.15) !important;
+  color: #cbd5e1 !important;
+}
+
+/* 2. Modals, Drawers & Cards */
+.arco-modal,
+.arco-modal-content,
+.arco-modal-header,
+.arco-modal-footer,
+.arco-drawer,
+.arco-drawer-content,
+.arco-card,
+.arco-card-body,
+.arco-collapse-item-content {
+  background-color: #0a1122 !important;
+  color: #cbd5e1 !important;
+  border-color: rgba(0, 210, 255, 0.1) !important;
+}
+
+/* 3. Popups, Menus & Dropdowns */
+.arco-trigger-content,
+.arco-popover-content,
+.arco-select-popup,
+.arco-dropdown-menu,
+.arco-menu,
+.arco-menu-inner,
+.arco-menu-inline,
+.arco-select-popup-inner {
+  background-color: #0a1122 !important;
+  border: 1px solid rgba(0, 210, 255, 0.2) !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 4. Fix Sendbox specific white border (Screenshot 151801) */
+.sendbox-container,
+[class*='sendbox'],
+.arco-input-inner-wrapper {
+  background-color: #020617 !important;
+  border-radius: 12px !important;
+}
+
+/* Fix Send Button Icon Contrast */
+.arco-btn-primary .arco-icon,
+.arco-btn-primary svg {
+  color: #050a14 !important; /* Black arrow on cyan background */
+  fill: #050a14 !important;
+}
+
+/* Button Neon Glow */
+.arco-btn-primary:not(.arco-btn-disabled) {
+  background: #00d2ff !important;
+  border: none !important;
+  color: #050a14 !important; /* Text color inside button */
+  font-weight: 600 !important;
+  box-shadow: 0 0 10px rgba(0, 210, 255, 0.3) !important;
+}
+
+.arco-btn-primary:not(.arco-btn-disabled):hover {
+  box-shadow: 0 0 15px rgba(0, 210, 255, 0.5) !important;
+  background: #33dfff !important;
+}
+
+/* NUCLEAR RESET - FORCING GRAMA DARKNESS */
+[data-theme='dark'] .arco-menu-item-inner,
+[data-theme='dark'] .arco-menu-selected,
+[data-theme='dark'] .arco-input,
+[data-theme='dark'] .arco-textarea {
+  background-color: #020617 !important;
+  color: #cbd5e1 !important;
+}

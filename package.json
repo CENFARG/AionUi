@@ -1,8 +1,8 @@
 {
-  "name": "AionUi",
-  "productName": "AionUi",
-  "version": "1.8.7",
-  "description": "Transform your command-line AI agent into a modern, efficient AI Chat interface.",
+  "name": "GramaOS",
+  "productName": "GramaOS",
+  "version": "2.0.0",
+  "description": "Grama OS - Deep Context & AI Agent Interface",
   "main": ".webpack/main",
   "scripts": {
     "start": "node scripts/start-forge.js",

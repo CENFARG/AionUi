@@ -15,7 +15,7 @@ interface TitlebarProps {
 
 const Titlebar: React.FC<TitlebarProps> = ({ workspaceAvailable }) => {
   const { t } = useTranslation();
-  const appTitle = useMemo(() => t('app.name', { defaultValue: 'AionUi' }), [t]);
+  const appTitle = 'Grama OS';
   const [workspaceCollapsed, setWorkspaceCollapsed] = useState(true);
   const layout = useLayoutContext();
 
@@ -72,7 +72,7 @@ const Titlebar: React.FC<TitlebarProps> = ({ workspaceAvailable }) => {
 
   return (
     <div
-      className={classNames('flex items-center gap-8px app-titlebar bg-2 border-b border-[var(--border-base)]', {
+      className={classNames('flex items-center gap-8px app-titlebar bg-2 border-b border-[var(--border-base)] grama-glass', {
         'app-titlebar--desktop': isDesktopRuntime,
         'app-titlebar--mac': isMacRuntime,
       })}

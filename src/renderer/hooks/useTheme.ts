@@ -4,13 +4,14 @@ import { useCallback, useEffect, useState } from 'react';
 
 export type Theme = 'light' | 'dark';
 
-const DEFAULT_THEME: Theme = 'light';
+const DEFAULT_THEME: Theme = 'dark';
 
 // Initialize theme immediately when module loads
 const initTheme = async () => {
   try {
     const theme = (await ConfigStorage.get('theme')) as Theme;
-    const initialTheme = theme || DEFAULT_THEME;
+    // Forzamos dark si no hay nada o si estaba en light
+    const initialTheme = !theme || theme === 'light' ? DEFAULT_THEME : theme;
     document.documentElement.setAttribute('data-theme', initialTheme);
     document.body.setAttribute('arco-theme', initialTheme);
     return initialTheme;

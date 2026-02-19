@@ -9,9 +9,9 @@ import { ConfigStorage } from '@/common/storage';
 import { useCallback, useEffect, useState } from 'react';
 
 // Supported color schemes 支持的配色方案类型
-export type ColorScheme = 'default';
+export type ColorScheme = 'default' | 'grama-neon';
 
-const DEFAULT_COLOR_SCHEME: ColorScheme = 'default';
+const DEFAULT_COLOR_SCHEME: ColorScheme = 'grama-neon';
 
 /**
  * Initialize color scheme immediately when module loads
@@ -20,7 +20,8 @@ const DEFAULT_COLOR_SCHEME: ColorScheme = 'default';
 const initColorScheme = async () => {
   try {
     const scheme = (await ConfigStorage.get('colorScheme')) as ColorScheme;
-    const initialScheme = scheme || DEFAULT_COLOR_SCHEME;
+    // Forzamos grama-neon si no hay nada o si es el default viejo
+    const initialScheme = !scheme || scheme === 'default' ? DEFAULT_COLOR_SCHEME : scheme;
     document.documentElement.setAttribute('data-color-scheme', initialScheme);
     return initialScheme;
   } catch (error) {

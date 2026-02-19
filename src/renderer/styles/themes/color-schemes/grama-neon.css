@@ -1,0 +1,103 @@
+/* Grama Neon Color Scheme - Derived from Grama Project */
+
+/* Grama Theme Definition */
+:root,
+[data-color-scheme='grama-neon'] {
+  /* Grama Brand Palette */
+  --grama-bg: #050a14;
+  --grama-surface: #0a1122;
+  --grama-accent: #00d2ff;
+  --grama-magenta: #ff00ff;
+  --grama-text: #e2e8f0;
+  --grama-muted: #64748b;
+  --grama-glass: rgba(10, 17, 34, 0.75);
+  --grama-glow: 0 0 15px rgba(0, 210, 255, 0.4);
+
+  /* Mapeo a Variables de Arco Design / AionUI */
+  --bg-base: var(--grama-bg);
+  --bg-1: var(--grama-surface);
+  --bg-2: #020617;
+  --bg-3: #0f172a;
+  --bg-hover: rgba(0, 210, 255, 0.15);
+  --bg-active: rgba(0, 210, 255, 0.25);
+
+  /* Arco Design Direct Internal Variables (CRITICAL) */
+  --color-bg-1: var(--grama-bg);
+  --color-bg-2: var(--grama-surface);
+  --color-bg-3: #020617;
+  --color-bg-4: #0f172a;
+  --color-bg-white: var(--grama-bg);
+
+  --color-text-1: var(--grama-text);
+  --color-text-2: var(--grama-muted);
+  --color-text-3: #475569;
+
+  --color-border-1: rgba(0, 210, 255, 0.1);
+  --color-border-2: rgba(0, 210, 255, 0.05);
+  --color-border-3: rgba(0, 210, 255, 0.2);
+
+  --color-primary-6: var(--grama-accent);
+  --color-primary-1: rgba(0, 210, 255, 0.1);
+  --color-primary-7: #33dfff;
+
+  --text-primary: var(--grama-text);
+  --text-secondary: var(--grama-muted);
+  --text-disabled: #475569;
+
+  --primary: var(--grama-accent);
+  --success: #10b981;
+  --warning: #f59e0b;
+  --danger: #ef4444;
+  --info: var(--grama-accent);
+
+  --border-base: #1e293b;
+  --border-light: #0f172a;
+
+  --brand: var(--grama-accent);
+  --brand-light: rgba(0, 210, 255, 0.1);
+  --brand-hover: #33dfff;
+
+  --message-user-bg: #1e293b;
+  --message-tips-bg: #0f172a;
+  --workspace-btn-bg: var(--grama-surface);
+
+  --fill: var(--grama-surface);
+  --inverse: #ffffff;
+
+  /* Custom Glows for Grama */
+  --grama-border-glow: 0 0 8px rgba(0, 210, 255, 0.3);
+
+  /* AOU Brand Palette Overrides (The White Killers) */
+  --aou-1: #050a14;
+  --aou-2: #0a1122;
+  --aou-3: #0f172a;
+  --aou-4: #1e293b;
+  --aou-5: #334155;
+  --aou-6: #00d2ff; /* Primary Brand */
+  --aou-7: #33dfff;
+  --aou-8: #66eaff;
+  --aou-9: #99f1ff;
+  --aou-10: #ccf8ff;
+
+  --aou-6-brand: #00d2ff;
+}
+
+/* Force Dark Mode defaults for Grama OS */
+[data-theme='dark'][data-color-scheme='grama-neon'] {
+  --bg-base: #020617; /* Más oscuro aún para el fondo principal */
+  --bg-1: var(--grama-bg);
+}
+
+/* Glassmorphism Effect for Siders and Headers */
+.grama-glass {
+  background: var(--grama-glass) !important;
+  backdrop-filter: blur(12px) !important;
+  -webkit-backdrop-filter: blur(12px) !important;
+  border-right: 1px solid rgba(0, 210, 255, 0.1) !important;
+}
+
+/* Glow Borders */
+.grama-glow-border {
+  border: 1px solid var(--grama-accent) !important;
+  box-shadow: var(--grama-border-glow) !important;
+}

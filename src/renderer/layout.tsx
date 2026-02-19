@@ -108,10 +108,42 @@ const Layout: React.FC<{
 
     const wrappedCss = processCustomCss(customCss);
 
+    // Grama OS Super Override - This kills all whites
+    const gramaNeonOverride = `
+      :root, body, [arco-theme], .arco-input, .arco-textarea, .arco-select-view, .arco-menu-item-inner, .arco-menu-selected {
+        background-color: #050A14 !important;
+        color: rgba(255, 255, 255, 0.9) !important;
+        --aou-1: #050A14;
+        --aou-2: #0A1122;
+        --aou-3: #0F172A;
+        --aou-4: #1E293B;
+        --aou-5: #334155;
+        --aou-6: #00D2FF;
+        --aou-6-brand: #00D2FF;
+      }
+      .arco-input, .arco-textarea, .arco-input-wrapper {
+        background-color: #020617 !important;
+        border: 1px solid rgba(0, 210, 255, 0.2) !important;
+      }
+      .arco-menu-selected, .arco-menu-item:hover {
+        background-color: rgba(0, 210, 255, 0.1) !important;
+        color: #00D2FF !important;
+      }
+      .arco-btn-primary {
+        background-color: #00D2FF !important;
+        color: #050A14 !important;
+      }
+      .arco-card, .aionui-modal-content {
+        background-color: #0A1122 !important;
+        border: 1px solid rgba(0, 210, 255, 0.1) !important;
+      }
+    `;
+
     const ensureStyleAtEnd = () => {
       let styleEl = document.getElementById(styleId) as HTMLStyleElement | null;
+      const finalCss = gramaNeonOverride + wrappedCss;
 
-      if (styleEl && styleEl.textContent === wrappedCss && styleEl === document.head.lastElementChild) {
+      if (styleEl && styleEl.textContent === finalCss && styleEl === document.head.lastElementChild) {
         return;
       }
 
@@ -119,7 +151,7 @@ const Layout: React.FC<{
       styleEl = document.createElement('style');
       styleEl.id = styleId;
       styleEl.type = 'text/css';
-      styleEl.textContent = wrappedCss;
+      styleEl.textContent = finalCss;
       document.head.appendChild(styleEl);
     };
 
@@ -181,7 +213,7 @@ const Layout: React.FC<{
             collapsedWidth={isMobile ? 0 : 64}
             collapsed={collapsed}
             width={DEFAULT_SIDER_WIDTH}
-            className={classNames('!bg-2 layout-sider', {
+            className={classNames('!bg-2 layout-sider grama-glass', {
               collapsed: collapsed,
             })}
             style={
@@ -215,12 +247,14 @@ const Layout: React.FC<{
                   viewBox='0 0 80 80'
                   fill='none'
                 >
-                  <path key='logo-path-1' d='M40 20 Q38 22 25 40 Q23 42 26 42 L30 42 Q32 40 40 30 Q48 40 50 42 L54 42 Q57 42 55 40 Q42 22 40 20' fill='white'></path>
-                  <circle key='logo-circle' cx='40' cy='46' r='3' fill='white'></circle>
-                  <path key='logo-path-2' d='M18 50 Q40 70 62 50' stroke='white' strokeWidth='3.5' fill='none' strokeLinecap='round'></path>
+                  <path key='logo-path-1' d='M40 20 Q38 22 25 40 Q23 42 26 42 L30 42 Q32 40 40 30 Q48 40 50 42 L54 42 Q57 42 55 40 Q42 22 40 20' fill='var(--grama-accent)'></path>
+                  <circle key='logo-circle' cx='40' cy='46' r='3' fill='var(--grama-accent)'></circle>
+                  <path key='logo-path-2' d='M18 50 Q40 70 62 50' stroke='var(--grama-accent)' strokeWidth='3.5' fill='none' strokeLinecap='round'></path>
                 </svg>
               </div>
-              <div className=' flex-1 text-20px collapsed-hidden font-bold'>AionUi</div>
+              <div className=' flex-1 text-20px collapsed-hidden font-bold text-grama-accent' style={{ textShadow: '0 0 10px rgba(0, 210, 255, 0.5)' }}>
+                Grama OS
+              </div>
               {isMobile && !collapsed && (
                 <button type='button' className='app-titlebar__button' onClick={() => setCollapsed(true)} aria-label='Collapse sidebar'>
                   {collapsed ? <MenuUnfold theme='outline' size='18' fill='currentColor' /> : <MenuFold theme='outline' size='18' fill='currentColor' />}

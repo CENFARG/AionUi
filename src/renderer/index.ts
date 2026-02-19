@@ -26,9 +26,9 @@ import zhCN from '@arco-design/web-react/es/locale/zh-CN'; // 中文（简体）
 import zhTW from '@arco-design/web-react/es/locale/zh-TW'; // 中文（繁体）
 import koKR from '@arco-design/web-react/es/locale/ko-KR'; // 韩文
 import { useTranslation } from 'react-i18next';
+import './i18n';
 import 'uno.css';
 import './arco-override.css';
-import './i18n';
 import './styles/themes/index.css';
 import HOC from './utils/HOC';
 const root = createRoot(document.getElementById('root'));
@@ -69,7 +69,7 @@ const Config: React.FC<PropsWithChildren> = ({ children }) => {
   } = useTranslation();
   const arcoLocale = arcoLocales[language] ?? enUS;
 
-  return React.createElement(ConfigProvider, { theme: { primaryColor: '#4E5969' }, locale: arcoLocale }, children);
+  return React.createElement(ConfigProvider, { theme: { primaryColor: '#00D2FF' }, locale: arcoLocale }, children);
 };
 
 const App = HOC.Wrapper(Config)(Main);

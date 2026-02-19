@@ -77,6 +77,18 @@ const aouColors = {
   },
 };
 
+// ==================== Grama OS Palette ====================
+const gramaColors = {
+  grama: {
+    bg: '#050A14',
+    surface: '#0A1122',
+    accent: '#00D2FF',
+    magenta: '#FF00FF',
+    text: '#E2E8F0',
+    muted: '#64748B',
+  },
+};
+
 // ==================== UI 组件专用颜色 / UI Component Specific Colors ====================
 const componentColors = {
   'message-user': 'var(--message-user-bg)',
@@ -171,6 +183,7 @@ export default defineConfig({
       ...borderColors,
       ...brandColors,
       ...aouColors,
+      ...gramaColors,
       ...componentColors,
       ...specialColors,
     },
